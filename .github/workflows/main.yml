@@ -11,6 +11,13 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: List files for debugging
+        run: |
+          echo "Files in repository:"
+          ls -la
+          echo "Current directory:"
+          pwd
+
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
@@ -21,6 +28,6 @@ jobs:
           python -m pip install --upgrade pip
           pip install aiohttp nest-asyncio requests
 
-      - name: Run script
+      - name: Run script with full output
         run: |
-          python script.py
+          python -u script.py
